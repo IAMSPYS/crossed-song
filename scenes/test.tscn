@@ -1,12 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://crfq2nlrxa1tj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ij1v8"]
+size = Vector2(1920, 1080)
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(960, 540)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-scale = Vector2(1920, 1080)
+texture_repeat = 2
 texture = SubResource("PlaceholderTexture2D_ij1v8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
