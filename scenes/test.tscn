@@ -1,14 +1,89 @@
-[gd_scene load_steps=2 format=3 uid="uid://crfq2nlrxa1tj"]
+[gd_scene load_steps=6 format=3 uid="uid://crfq2nlrxa1tj"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ij1v8"]
-size = Vector2(1920, 1080)
+[ext_resource type="Texture2D" uid="uid://dt5j7thfirh1f" path="res://assets/SVG/Center.svg" id="1_errlg"]
+[ext_resource type="Texture2D" uid="uid://bvdu8eobeagvo" path="res://assets/SVG/TrackLine.svg" id="2_bl13t"]
+[ext_resource type="Texture2D" uid="uid://ddbaamwr826hr" path="res://assets/SVG/TrackBG.svg" id="2_iyx0m"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ij1v8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_errlg"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_ij1v8")
+seamless = true
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="BG" type="Parallax2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
 texture_repeat = 2
-texture = SubResource("PlaceholderTexture2D_ij1v8")
+texture = SubResource("NoiseTexture2D_errlg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Center" type="Sprite2D" parent="Node2D"]
+z_index = 5
+position = Vector2(0, -2)
+texture = ExtResource("1_errlg")
+
+[node name="Track" type="Node2D" parent="Node2D/Center"]
+z_as_relative = false
+
+[node name="TrackBG" type="Sprite2D" parent="Node2D/Center/Track"]
+clip_children = 2
+rotation = -0.51138145
+scale = Vector2(1.2, 0.65)
+texture = ExtResource("2_iyx0m")
+offset = Vector2(480, 0)
+
+[node name="TrackLine" type="Sprite2D" parent="Node2D/Center/Track/TrackBG"]
+scale = Vector2(0.84, 1.1)
+texture = ExtResource("2_bl13t")
+
+[node name="Track2" type="Node2D" parent="Node2D/Center"]
+z_as_relative = false
+rotation = 1.0227629
+
+[node name="TrackBG" type="Sprite2D" parent="Node2D/Center/Track2"]
+clip_children = 2
+rotation = -0.51138145
+scale = Vector2(1.2, 0.65)
+texture = ExtResource("2_iyx0m")
+offset = Vector2(480, 0)
+
+[node name="TrackLine" type="Sprite2D" parent="Node2D/Center/Track2/TrackBG"]
+scale = Vector2(0.84, 1.1)
+texture = ExtResource("2_bl13t")
+
+[node name="Track3" type="Node2D" parent="Node2D/Center"]
+z_as_relative = false
+rotation = 3.1415927
+
+[node name="TrackBG" type="Sprite2D" parent="Node2D/Center/Track3"]
+clip_children = 2
+rotation = -0.51138145
+scale = Vector2(1.2, 0.65)
+texture = ExtResource("2_iyx0m")
+offset = Vector2(480, 0)
+
+[node name="TrackLine" type="Sprite2D" parent="Node2D/Center/Track3/TrackBG"]
+scale = Vector2(0.84, 1.1)
+texture = ExtResource("2_bl13t")
+
+[node name="Track4" type="Node2D" parent="Node2D/Center"]
+z_as_relative = false
+rotation = 4.1643558
+
+[node name="TrackBG" type="Sprite2D" parent="Node2D/Center/Track4"]
+clip_children = 2
+rotation = -0.51138145
+scale = Vector2(1.2, 0.65)
+texture = ExtResource("2_iyx0m")
+offset = Vector2(480, 0)
+
+[node name="TrackLine" type="Sprite2D" parent="Node2D/Center/Track4/TrackBG"]
+scale = Vector2(0.84, 1.1)
+texture = ExtResource("2_bl13t")
